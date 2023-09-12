@@ -1,5 +1,6 @@
 import { Line } from "react-chartjs-2"
 import { useChart } from "../hooks/useChart"
+import * as S from "./TimeSeriseChart.styled"
 import {
   Chart as ChartJS,
   LinearScale,
@@ -28,26 +29,30 @@ ChartJS.register(
 )
 
 export function TimeSeriesChart() {
-  const { filterData, clearFilter, chartOptions, chartData, idList } = useChart()
+  const { filterTarget, filterData, clearFilter, chartOptions, chartData, idList } = useChart()
 
   return (
     <>
-      <ul>
+      <S.IdUl>
         <li>
-          <button type="button" onClick={() => clearFilter()}>
+          <S.IdButton type="button" onClick={() => clearFilter()}>
             해제
-          </button>
+          </S.IdButton>
         </li>
         {idList.map((id: string, idx: number) => {
           return (
             <li key={idx}>
-              <button type="button" onClick={() => filterData(id)}>
+              <S.IdButton
+                type="button"
+                onClick={() => filterData(id)}
+                $isChecked={filterTarget === id}
+              >
                 {id}
-              </button>
+              </S.IdButton>
             </li>
           )
         })}
-      </ul>
+      </S.IdUl>
 
       <Line options={chartOptions} data={chartData} />
     </>

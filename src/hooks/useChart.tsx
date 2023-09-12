@@ -100,5 +100,5 @@ export function useChart() {
     ],
   }
 
-  return { filterData, clearFilter, chartOptions, chartData, idList }
+  return { filterTarget, filterData, clearFilter, chartOptions, chartData, idList }
 }
