@@ -4,7 +4,7 @@ import { ConvertDataType } from "../services/DataService"
 
 export function useChart() {
   const { dataObj } = useData()
-  const idList = [...new Set(dataObj.map((data: ConvertDataType) => data.id))]
+  const idList: string[] = [...new Set(dataObj.map((data: ConvertDataType) => data.id))]
 
   const [filterTarget, setFilterTarget] = useState<string>("")
   const filterData = (id: string) => {

@@ -38,7 +38,7 @@ export function TimeSeriesChart() {
             해제
           </button>
         </li>
-        {idList.map((id, idx) => {
+        {idList.map((id: string, idx: number) => {
           return (
             <li key={idx}>
               <button type="button" onClick={() => filterData(id)}>
