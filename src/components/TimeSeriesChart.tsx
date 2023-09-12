@@ -35,7 +35,7 @@ export function TimeSeriesChart() {
     <>
       <S.IdUl>
         <li>
-          <S.IdButton type="button" onClick={() => clearFilter()}>
+          <S.IdButton type="button" onClick={() => clearFilter()} $isChecked={false}>
             해제
           </S.IdButton>
         </li>
