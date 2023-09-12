@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { useData } from "../context/DataContext"
 import { ConvertDataType } from "../services/DataService"
-import type { ChartData, ChartOptions } from "chart.js"
+import type { ChartOptions } from "chart.js"
 
 export function useChart() {
-  const { dataObj } = useData()
-  const idList: string[] = [...new Set(dataObj.map((data: ConvertDataType) => data.id))]
+  const { convertedData } = useData()
+  const dataList: ConvertDataType[] = convertedData
+  const idList: string[] = [...new Set(dataList.map((data) => data.id))]
 
   const [filterTarget, setFilterTarget] = useState<string>("")
   const filterData = (id: string) => {
@@ -25,7 +26,7 @@ export function useChart() {
       x: {
         title: {
           display: true,
-          text: `${dataObj[0].timestamp.split(" ")[0]}일자`,
+          text: `${dataList[0].timestamp.split(" ")[0]}일자`,
         },
       },
       "y-left": {
@@ -63,7 +64,7 @@ export function useChart() {
         callbacks: {
           beforeBody: function (TooltipItems: any) {
             const idx = TooltipItems[0].dataIndex
-            const id = dataObj[idx].id
+            const id = dataList[idx].id
             return `id: ${id}`
           },
         },
@@ -71,15 +72,15 @@ export function useChart() {
     },
   }
 
-  const chartData: ChartData<"line"> = {
-    labels: dataObj.map((data: ConvertDataType): string => data.timestamp.split(" ")[1]),
+  const chartData: any = {
+    labels: dataList.map((data): string => data.timestamp.split(" ")[1]),
 
     datasets: [
       {
         type: "line" as const,
         label: "Area",
         yAxisID: "y-left",
-        data: dataObj.map((data: ConvertDataType): number => data.value_area),
+        data: dataList.map((data): number => data.value_area),
         fill: true,
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -88,10 +89,10 @@ export function useChart() {
         type: "bar" as const,
         label: "Bar",
         yAxisID: "y-right",
-        data: dataObj.map((data: ConvertDataType) => data.value_bar),
+        data: dataList.map((data) => data.value_bar),
         borderColor: "rgb(53, 162, 235)",
         hoverBackgroundColor: "rgb(53, 162, 235)",
-        backgroundColor: dataObj.map((data: ConvertDataType) => {
+        backgroundColor: dataList.map((data) => {
           if (data.id === filterTarget) {
             return "rgb(53, 162, 235)"
           }
