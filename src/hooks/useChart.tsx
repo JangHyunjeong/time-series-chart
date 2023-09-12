@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useData } from "../context/DataContext"
 import { ConvertDataType } from "../services/DataService"
+import type { ChartData, ChartOptions } from "chart.js"
 
 export function useChart() {
   const { dataObj } = useData()
@@ -14,7 +15,7 @@ export function useChart() {
     setFilterTarget("")
   }
 
-  const chartOptions = {
+  const chartOptions: ChartOptions<"line"> = {
     responsive: true,
     interaction: {
       intersect: false,
@@ -70,7 +71,7 @@ export function useChart() {
     },
   }
 
-  const chartData = {
+  const chartData: ChartData<"line"> = {
     labels: dataObj.map((data: ConvertDataType): string => data.timestamp.split(" ")[1]),
 
     datasets: [
