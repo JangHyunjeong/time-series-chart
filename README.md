@@ -1,6 +1,6 @@
 # Time Series Chart
 
-- chart.js 를 사용하여 시계열 차트를 구현했습니다.
+- [chart.js](https://www.chartjs.org/) 를 사용하여 시계열 차트를 구현했습니다.
 
 ## 배포 주소
 
@@ -8,12 +8,12 @@
 
 ## 사용 기술
 
-언어 : TypeScript
-프레임워크 : React.js
-차트 : chart.js
-통신 : Axios
-스타일링 : Styled-components
-배포 : Vercel
+- 언어 : TypeScript
+- 프레임워크 : React.js
+- 차트 : [chart.js](https://www.chartjs.org/)
+- 통신 : Axios
+- 스타일링 : Styled-components
+- 배포 : Vercel
 
 ## 디렉토리 구조
 
@@ -65,20 +65,3 @@ npm install
 ```
 npm run dev
 ```
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
