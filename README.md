@@ -22,11 +22,11 @@
 1. data(시간, 지역명, Area데이터, Bar데이터 로 구성)를 받아와, 시간 순서에 따라 데이터를 노출해줍니다.
    - x축: 시간 , 왼쪽 y축 : area 데이터, 오른쪽 y축: bar 데이터 를 기준으로 출력해줍니다. 
    - Area / Bar 형태의 Multi Chart 를 구성했습니다.
-   - ![image](https://github.com/JangHyunjeong/time-series-chart/assets/85441226/7f096f99-dd67-453b-b08a-8bb1867936a3)
- 
- 2. 호버 기능 구현
+   ![image](https://github.com/JangHyunjeong/time-series-chart/assets/85441226/7f096f99-dd67-453b-b08a-8bb1867936a3)
+
+2. 호버 기능 구현
    - 데이터의 값을 쉽게 확인하기 위해, 호버시 Tooltip에 지역명, Area 데이터 값, Bar 데이터 값을 노출합니다.
-   ![호버](https://github.com/JangHyunjeong/time-series-chart/assets/85441226/dcbbec0e-d7af-460c-9e3d-48d0f1a8f024)\
+   ![호버](https://github.com/JangHyunjeong/time-series-chart/assets/85441226/dcbbec0e-d7af-460c-9e3d-48d0f1a8f024)
 
 3. 필터링 기능 구현
    - 특정 지역의 데이터를 확인하기 쉽게, 상단 filter 기능을 사용하 원하는 데이터를 하이라이팅 하여 볼 수 있습니다.
